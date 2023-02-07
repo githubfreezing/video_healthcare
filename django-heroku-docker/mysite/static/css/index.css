@@ -1,0 +1,472 @@
+@import url('https://fonts.googleaips.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+:root {
+    --header-height: 60vh;
+  }
+
+*{
+    margin: 0;
+    padding-top: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+span {
+    color: white;
+    font-size:3em;
+    z-index: 10;
+}
+
+.predbutton {
+    /* width: 20em; */
+    width: 15vh;
+    height: 4vh;
+    z-index: 10;
+}
+
+.console p {
+    color: white;
+    font-size: 300%;
+}
+
+/* body{
+    background: #343434;
+} */
+
+.site-header{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    /* min-height: 50vh; */
+    height: var(--header-height);
+    background: #343434;
+    overflow: hidden;
+    box-sizing: border-box;
+    background: rgba(255, 255, 255, 0.05);
+    background-color: #343434;
+}
+
+.tensor_object{
+    position: relative;
+    width: 55%;
+    min-height: 5vh;
+    margin: 20px 0 20px 20px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.05);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(15px);
+    float: left;
+}
+
+.tensor_object p{
+    color: #fff;
+    font-size: 1em;
+    vertical-align: middle;
+}
+
+
+.title{
+    position: relative;
+    width:50%;
+    min-height: 5vh;
+    margin: 20px 20px 20px 0;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.05);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(15px);
+    float: right;
+    overflow: hidden;
+}
+
+
+.title .title_name{
+    position: relative;
+    color: #fff;
+    font-size: 3em;
+    font-weight: 700;
+    letter-spacing: 0.3vh;
+    margin-left: 1vh;
+    margin-top: 0.7vh;
+    width: 60%;
+    float: left;
+    overflow: hidden;
+}
+
+.title .imageBox{
+    position: relative;
+    margin-right: 1vh;
+    margin-top: 0.7vh;
+    width: 75px;
+    height: 75px;
+    background: #000;
+    border-radius: 100px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(15px);
+    float: right;
+    overflow: hidden;
+}
+
+.title .imageBox img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    overflow: hidden;
+}
+
+.camera{
+    display: flex;
+    justify-content: center;
+    width: 96%;
+    min-height: 35vh;
+    margin: 0 20px 20px 20px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.05);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(15px);
+    overflow: hidden;
+    overflow: hidden;
+}
+
+.camera video{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    overflow: hidden;
+}
+
+.submit{
+    display: block;
+    width: 96%;
+    /* min-height: 8vh; */
+    /*height: 12vh;*/
+    margin: 0 20px 20px 20px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.05);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(15px);
+    overflow: hidden;
+    float: left;
+    overflow: hidden;
+}
+
+.submit .inputBox{
+    position: relative;
+    width: 98%;
+    /*height: 1vh;*/
+
+    margin-top: 0.4vh;
+    margin-left: 0.4vh;
+    background: rebeccapurple;
+    overflow: hidden;
+}
+
+.submit .filename{
+    position: relative;
+    width: 21vh;
+    height: 8vh;
+    float: left;
+    margin: 0.5vh;
+    /* background: red; */
+    overflow: hidden;
+}
+
+.submit .uploadlabel{
+    position: relative;
+    width: 21vh;
+    height: 8vh;
+    float: right;
+    margin: 0.5vh;
+    /* background: yellow; */
+    overflow: hidden;
+}
+
+.submit .filename input{
+    position: relative;
+    width: 20vh;
+    padding: 15px;
+    margin: 0.5vh;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    background: #2b323a;
+    border-radius: 5px;
+    outline: none;
+    color: #fff;
+    font-size: 1em;
+    float: left;
+    text-align: center;
+    overflow: hidden;
+}
+
+.submit .filename button{
+    position: relative;
+    width: 20vh;
+    height: 4vh;
+    margin-left: 0.5vh;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    background: #2b323a;
+    border-radius: 5px;
+    outline: none;
+    color: #fff;
+    cursor: pointer;
+    font-size: 3em;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    overflow: hidden;
+}
+
+.submit .uploadlabel p {
+    position: relative;
+    width: 20vh;
+    padding: 15px;
+    margin: 0.5vh;
+    margin-bottom: 1vh;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    background: #2b323a;
+    border-radius: 5px;
+    outline: none;
+    color: #fff;
+    font-size: 1em;
+    float: left;
+    text-align: center;
+    overflow: hidden;
+}
+
+.submit .uploadlabel label{
+    position: relative;
+    margin-left: 0.5vh;
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    background: #2b323a;
+    color: #fff;
+    cursor: pointer;
+    font-size: 3em;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    overflow: hidden;
+}
+
+.submit .uploadlabel input[type="file"] {
+    display: none;
+    overflow: hidden;
+}
+
+.filename{
+    color: white;
+}
+
+.uploadlabel{
+	color: white;
+}
+
+.all_button_area{
+    position: absolute;
+    /* position:static; */
+    top: var(--header-height);
+    min-height: 50vh;
+    background: #343434;
+    overflow: auto;
+    box-sizing: border-box;
+    z-index: -1;
+}
+
+.button_area{
+    display: block;
+    width: 96%;
+    min-height: 5vh;
+    margin: 1vh;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.05);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(15px);
+    overflow: hidden;
+}
+
+.button_area .class_button{
+    position: relative;
+    width: 27vh;
+    height: 5.5vh;
+    float: left;
+}
+
+.button_area .class_button button{
+    position: relative;
+    width: 25vh;
+    height: 4vh;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    background: #163960;
+    border-radius: 5px;
+    outline: none;
+    color: #fff;
+    cursor: pointer;
+    font-size: 3em;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    margin: 0.8vh 1vh 1vh 1vh;   
+}
+
+.button_area .class_p_top{
+    width: 15vh;
+    height: 1vh;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.05);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(15px);
+    float: right;
+    margin: 1vh 1vh 0.25vh 1vh;
+    color: #fff;
+}
+
+.button_area .class_p_top p{
+    position: relative;
+    width: 90%;
+    font-size: 1em;
+    font-weight: 500;
+    text-align: center;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+.button_area .class_p_bottom{
+    width: 15vh;
+    height: 2vh;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.05);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(15px);
+    float: right;
+    margin: 0.25vh 1vh 1vh 1vh;
+    color: #fff;
+}
+
+.button_area .class_p_bottom p{
+    position: relative;
+    width: 90%;
+    font-size: 2em;
+    font-weight: 800;
+    text-align: center;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.video_area{
+    background: #343434;
+}
+
+footer{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    min-height: 4vh;
+    background: #343434;
+    overflow: hidden;
+    box-sizing: border-box;
+    color: #fff;
+    
+}
+
+footer .copylight{
+    display: block;
+    width: 96%;
+    min-height: 3vh;
+    margin: 1vh;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.05);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(15px);
+    overflow: hidden;
+}
+
+
+footer .copylight #cm{
+    position: absolute;
+}
+footer .copylight .hc{
+    width: 40vh;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+footer .copylight .hc{
+    height: 40px;
+    top: -0.1vh;
+    bottom: 0;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+footer .copylight p{
+    text-align: center;
+    font-size: 1em;
+}
+
+footer .copylight span{
+    color: rgb(235, 69, 69);
+    font-size: 1em;
+}
+
+/* .button {
+    display       : inline-block;
+    border-radius : 5%;
+    font-size     : 3em;
+    text-align    : center;
+    padding       : 12px 12px;
+    background    : #000066;
+    color         : #ffffff;
+    line-height   : 1em;
+    box-shadow    : 6px 6px 3px #666666;
+    border        : 2px solid #000066;
+  } */
+
+
+
+
+/*
+
+section .button_area{
+    display: block;
+    width: 96%;
+    min-height: 41vh;
+    margin: 0 20px 20px 20px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.05);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(15px);
+    overflow: visible;
+    float: left;
+}
+
+section .bottom_area{
+    display: block;
+    width: 96%;
+    min-height: 3vh;
+    margin: 0 20px 20px 20px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.05);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(15px);
+    overflow: hidden;
+    float: left;
+
+
+}
+
+section .bottom_area p{
+    position: relative;
+    width: 40vh;
+    height: 1.2vh;
+    margin: 1vh 1vh 1vh 2vh;
+    color: #fff;    
+}
+
+*/

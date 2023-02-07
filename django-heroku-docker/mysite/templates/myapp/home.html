@@ -1,0 +1,51 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- TensorFlow.jsを用いるために必要なcdn -->
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/mobilenet"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/knn-classifier"></script>
+
+    <!-- cssファイルの読み込み -->
+    <link href="{% static 'css/index.css' %}" rel="stylesheet">
+    <!-- <link rel="stylesheet" type="text/css" href="/cropapp/static/css/index.css"> -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/slide.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/title.css' %}">
+  </head>
+  <body>
+
+      <!-- カメラ設定 -->
+        <video autoplay playsinline muted loop id="video">
+          <source src=”movie.mp4″>
+        </video>
+
+
+          {% csrf_token %}
+          <input type="button" value="Class1" onclick="buttonClick(0)" class="button">
+
+
+
+          <canvas type="hidden" id="draw" width="640" height="480"></canvas><br>
+
+          <!-- <p><img id="newImg3"></p> -->
+          <p>newImg</p>
+          <p><img id="newImg"></p>
+          <!-- <p>newImg2</p>
+          <p><img id="newImg2"></p> -->
+
+
+    <!-- jsファイル読み込み -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script src="{% static 'js/slide.js' %}"></script>
+    <script src="{% static 'js/title.js' %}"></script>
+    <script src="{% static 'js/index.js' %}"></script>
+    <!-- fetchのPOST実行時にクッキー取得 -->
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+  </body>
+</html>

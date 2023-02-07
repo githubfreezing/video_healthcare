@@ -1,0 +1,179 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- TensorFlow.jsを用いるために必要なcdn -->
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/mobilenet"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/knn-classifier"></script>
+
+    <!-- cssファイルの読み込み -->
+    <link href="{% static 'css/index.css' %}" rel="stylesheet">
+    <!-- <link rel="stylesheet" type="text/css" href="/cropapp/static/css/index.css"> -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/slide.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/title.css' %}">
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="title">
+        <div class="title_name">Eyenect</div>
+        <div class="imageBox" style="display: inline-block; _display: inline;"><img src="{% static 'css/cropapp/Eyenect_Round.png' %}" alt=""></div>
+      </div>
+
+      <div class="console">
+        <!-- アプリ見出し -->
+        <p id="result">Eyenect</p>
+        <div class="predbutton">
+          {% csrf_token %}
+          <input type="button" value="pred" onclick="doPred()" class="predbutton" style="font-size:3vh">
+        </div>
+
+      </div>
+
+      <!-- カメラ設定 -->
+      <div class="camera">
+        <!-- <video autoplay playsinline muted id="webcam" width="850" height="850"></video> -->
+        <!-- <video autoplay playsinline muted loop id="webcam"></video> -->
+
+        <!-- <video id="video" width="640" height="480"></video><br> -->
+        <video autoplay playsinline muted loop id="video">
+          <source src=”movie.mp4″>
+        </video>
+      </div>
+
+      <!-- <div class="submit"> -->
+        <!-- セーブファイル名入力欄設定 -->
+        <div class="filename">
+          <input type="text" id="fname" required="required" placeholder="保存するファイル名">
+          <button class="btn btn-outline-dark2" ontouchstart="" id="SAVE">SAVE</button>
+        </div>
+  
+        <!-- ロード機能設定 -->
+        <div class="uploadlabel">
+          <!-- <p>選択されていません</p> -->
+          <label class="upload-label">
+            <input type="file" id="file">ファイルを選択
+          </label>
+        </div>
+      <!-- </div> -->
+
+    </header>
+
+    <div class="all_button_area">
+      <br><br><br>
+
+      <div class="button_area">
+        <div class="class_button">
+          {% csrf_token %}
+          <input type="button" value="Class1" onclick="buttonClick(0)" class="button">
+          <div style="text-align: center; display: inline-block; _display: inline;">
+            <span id="num_1"></span>
+          </div>
+        </div>
+        <div class="class_p_top">
+          <p class=num>枚数</p>
+        </div>
+        <div class="class_p_bottom">
+          <p class=num>枚<p></p>
+        </div>
+      </div>
+      
+      <div class="button_area">
+        <div class="class_button">
+          {% csrf_token %}
+          <input type="button" value="Class2" onclick="buttonClick(1)" class="button">
+          <div style="text-align: center; display: inline-block; _display: inline;">
+            <span id="num_2"></span>
+          </div>
+        </div>
+        <div class="class_p_top">
+          <p class=num>枚数</p>
+        </div>
+        <div class="class_p_bottom">
+          <p class=num>枚<p></p>
+        </div>
+      </div>
+
+      <div class="button_area">
+        <div class="class_button">
+          {% csrf_token %}
+          <input type="button" value="Class3" onclick="buttonClick(2)" class="button">
+          <div style="text-align: center; display: inline-block; _display: inline;">
+            <span id="num_3"></span>
+          </div>
+        </div>
+        <div class="class_p_top">
+          <p class=num>枚数</p>
+        </div>
+        <div class="class_p_bottom">
+          <p class=num>枚<p></p>
+        </div>
+      </div>
+      <div class="button_area">
+        <div class="class_button">
+          {% csrf_token %}
+          <input type="button" value="Class4" onclick="buttonClick(3)" class="button">
+          <div style="text-align: center; display: inline-block; _display: inline;">
+            <span id="num_4"></span>
+          </div>
+        </div>
+        <div class="class_p_top">
+          <p class=num>枚数</p>
+        </div>
+        <div class="class_p_bottom">
+          <p class=num>枚<p></p>
+        </div>
+      </div>
+
+      <div class="button_area">
+        <div class="class_button">
+          {% csrf_token %}
+          <input type="button" value="Class5" onclick="buttonClick(4)" class="button">
+          <div style="text-align: center; display: inline-block; _display: inline;">
+            <span id="num_5"></span>
+          </div>
+        </div>
+        <div class="class_p_top">
+          <p class=num>枚数</p>
+        </div>
+        <div class="class_p_bottom">
+          <p class=num>枚<p></p>
+        </div>
+      </div>
+
+      <span id="time"></span>
+
+      <div class="video_area">
+        <!-- <div hidden> -->
+          <!-- <video id="video" width="640" height="480"></video><br> -->
+          <canvas id="draw" width="640" height="480"></canvas><br>
+          <p><img id="newImg3"></p>
+          <p>newImg</p>
+          <p><img id="newImg"></p>
+          <!-- <canvas id="draw2"></canvas><br> -->
+          <p>newImg2</p>
+          <p><img id="newImg2"></p>
+        <!-- </div> -->
+      </div>
+    </div>
+
+    <footer>
+      <div class="copylight">
+        <p id="cm" class="hc vc">Create By <span>Designer</span> | © 2022 All rights reserved.</p>
+      </div>
+    </footer>
+
+    <!-- jsファイル読み込み -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script src="{% static 'js/slide.js' %}"></script>
+    <script src="{% static 'js/title.js' %}"></script>
+    <script src="{% static 'js/index.js' %}"></script>
+    <!-- fetchのPOST実行時にクッキー取得 -->
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+  </body>
+</html>
