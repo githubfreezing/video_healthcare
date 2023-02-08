@@ -59,26 +59,40 @@ def ResIndex(request):
         results = model(numpy_bgr32)
         print(type(results))
 
-        coor_0 = int(results.crop()[0]['box'][0])
-        coor_1 = int(results.crop()[0]['box'][1])
-        coor_2 = int(results.crop()[0]['box'][2])
-        coor_3 = int(results.crop()[0]['box'][3])
+        # coor_0 = int(results.crop()[0]['box'][0])
+        # coor_1 = int(results.crop()[0]['box'][1])
+        # coor_2 = int(results.crop()[0]['box'][2])
+        # coor_3 = int(results.crop()[0]['box'][3])
 
-        a = cv2.rectangle(image, (coor_0, coor_1), (coor_2, coor_3), (0, 0, 255), thickness = 3)
-        b = cv2.putText(a, results.crop()[0]['label'], (coor_0, coor_1), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 0), 2, cv2.LINE_AA)
+        # a = cv2.rectangle(image, (coor_0, coor_1), (coor_2, coor_3), (0, 0, 255), thickness = 3)
+        # b = cv2.putText(a, results.crop()[0]['label'], (coor_0, coor_1), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 0), 2, cv2.LINE_AA)
+        #result, dst_data = cv2.imencode('.png', b)
+
+        a = image 
+
+        for i in range(len(results.crop())):
+            results_1_info = results.crop()[i]
+
+            coor_0 = int(results_1_info['box'][0])
+            coor_1 = int(results_1_info['box'][1])
+            coor_2 = int(results_1_info['box'][2])
+            coor_3 = int(results_1_info['box'][3])
+
+            a = cv2.rectangle(a, (coor_0, coor_1 - 30), (coor_0 + 18 * len(results_1_info['label']), coor_1), (0, 0, 255), thickness = -1)
+            a = cv2.rectangle(a, (coor_0, coor_1), (coor_2, coor_3), (0, 0, 255), thickness = 3)
+            a = cv2.putText(a, results_1_info['label'], (coor_0, coor_1), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 255, 255), 2, cv2.LINE_AA)
+
+            print("results.crop()[0]['label']")
+            print(results.crop()[0]['label'])
 
 
-
-        result, dst_data = cv2.imencode('.png', b)
+        result, dst_data = cv2.imencode('.png', a)
         #result, dst_data = cv2.imencode('.png', results.crop()[0]["im"])
 
         # image_remove = remove(image)
         # result, dst_data = cv2.imencode('.png', image_remove)
 
         #result, dst_data = cv2.imencode('.png', image)
-
-        print("results.crop()[0]['label']")
-        print(results.crop()[0]['label'])
 
         dst_base64 = base64.b64encode(dst_data).decode()
 
